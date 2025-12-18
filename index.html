@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSA Шифрование</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔐 RSA Шифрование</h1>
+      <p class="subtitle">Генерируйте ключи и шифруйте сообщения отдельно</p>
+
+      <div class="key-box">
+        <div class="key-row">
+          <div class="key-label">Модуль (n):</div>
+          <div class="key-value" id="key-n">нажмите "Сгенерировать ключи"</div>
+        </div>
+        <div class="key-row">
+          <div class="key-label">Открытая экспонента (e):</div>
+          <div class="key-value" id="key-e">-</div>
+        </div>
+        <div class="key-row">
+          <div class="key-label">Закрытая экспонента (d):</div>
+          <div class="key-value" id="key-d">-</div>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button class="btn-generate" onclick="generateKeys()" id="generate-btn">
+          🔄 Сгенерировать ключи
+        </button>
+      </div>
+
+      <div class="steps-box">
+        <h3 style="margin-top: 0; color: #1e3c72">Шифрование:</h3>
+
+        <div class="input-group">
+          <label for="encrypt-message">Сообщение для шифрования:</label>
+          <textarea id="encrypt-message">Привет! Hello! 123</textarea>
+        </div>
+
+        <button
+          class="btn-primary"
+          onclick="encryptMessage()"
+          style="width: 100%; margin-top: 10px"
+          id="encrypt-btn"
+        >
+          🔒 Зашифровать сообщение
+        </button>
+
+        <div class="result-box" style="margin-top: 15px">
+          <div class="result-title">Зашифрованное сообщение:</div>
+          <div id="encrypt-result" class="result-content">
+            Сначала сгенерируйте ключи
+          </div>
+        </div>
+      </div>
+
+      <div class="steps-box">
+        <h3 style="margin-top: 0; color: #1e3c72">Расшифрование:</h3>
+
+        <div class="input-group">
+          <label for="decrypt-cipher"
+            >Зашифрованное сообщение (через пробел):</label
+          >
+          <textarea
+            id="decrypt-cipher"
+            placeholder="Числа через пробел..."
+          ></textarea>
+        </div>
+
+        <button
+          class="btn-secondary"
+          onclick="decryptMessage()"
+          style="width: 100%; margin-top: 10px"
+          id="decrypt-btn"
+        >
+          🔓 Расшифровать сообщение
+        </button>
+
+        <div class="result-box" style="margin-top: 15px">
+          <div class="result-title">Расшифрованное сообщение:</div>
+          <div id="decrypt-result" class="result-content">
+            Сначала сгенерируйте ключи и зашифруйте сообщение
+          </div>
+        </div>
+      </div>
+
+      <div id="status" class="status info">
+        Нажмите "Сгенерировать ключи" чтобы начать
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
